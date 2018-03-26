@@ -1,33 +1,15 @@
-// var path = require('path');
-// var webpack = require('webpack');
-//
-//
-// module.exports = {
-//     entry: './src/app.js',
-//     output: {
-//         path: path.resolve(__dirname, 'build'),
-//         filename: 'main.bundle.js'
-//     },
-//     module: {
-//         rules: [{
-//             test: /\.js$/,
-//             exclude: [/node.modules/],
-//             use: [{
-//                 loader: 'babel-loader',
-//                 options: {
-//                     presents: ['env']
-//                 }
-//             }]
-//         }]
-//     },
-// }
-
-
 var path = require('path');
 var webpack = require('webpack');
+var resolve = require('resolve');
+
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var extractPlugin = new ExtractTextPlugin({
+    filename: 'main.css'
+});
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/scripts/app.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'main.bundle.js'
@@ -42,20 +24,18 @@ module.exports = {
                     presets: ['es2015']
                 }
             }]
+        }, {
+            test: /\.scss$/,
+            use: extractPlugin.extract({
+                use: ['css-loader', 'sass-loader']
+            })
         }]
-
-        // loaders: [
-        //     {
-        //         test: /\.js$/,
-        //         loader: 'babel-loader',
-        //         query: {
-        //             presets: ['es2015']
-        //         }
-        //     }
-        // ]
     },
     stats: {
         colors: true
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    plugins: [
+        extractPlugin
+    ]
 };

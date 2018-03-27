@@ -38,7 +38,6 @@ let getWeather = (lat, lon) => {
     });
 };
 
-
 let getLocation = () => {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {

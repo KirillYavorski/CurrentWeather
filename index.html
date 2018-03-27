@@ -1,28 +1,55 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Current Weatwer</title>
-    <link href='./src/styles/appStyles.scss' rel='stylesheet' type='text/scss'>
+    <link href='./build/main.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="card" style="width: 18rem;">
-    <!--<img class="card-img-top" src="..." alt="Card image cap">-->
-    <div class="card-body">
-        <h5 class="card-title">Название карточки</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+<div class="weather-wrap">
+    <div class="row info-about-location">
+        <div class="col-md-12">
+            <h1 id="city-text"></h1>
+        </div>
+        <div class="col-md-12">
+            <img src="" alt="" id="weatherImg">
+        </div>
+        <div class="col-md-12">
+            <p id="weather-text"></p>
+        </div>
+    </div>
+    <div class="row info-about-weather">
+        <div class="col-md-6 info-about-temp">
+            <h1 id="temp-text"></h1>
+        </div>
+        <div class="col-md-6">
+            <div class="details-text-header">
+                <p>Details</p>
+            </div>
+            <div class="details-list">
+                <p class="details-hard-text">Wind: </p>
+                <p id="wind-text" class="details-list-element"></p>
+                <p class="details-hard-text">Humidity: </p>
+                <p id="humidity-text" class="details-list-element"></p>
+                <p class="details-hard-text">Cloudiness: </p>
+                <p id="clouds-text" class="details-list-element"></p>
+                <p class="details-hard-text">Pressure: </p>
+                <p id="pressure-text" class="details-list-element"></p>
+            </div>
+        </div>
+    </div>
+    <div class="row openweather-link-wrap">
+        <p class="more-at-text">More at</p>
+        <a href="https://openweathermap.org/city" class="openweather-link"><p>OpenWeatherMap</p></a>
     </div>
 </div>
 
 
 
-
-
-<script src="./build/main.bundle.js"></script>
-<script src="./build/main.bundle.css"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src='./build/main.bundle.js'></script>
 </body>
 </html>
